@@ -29,12 +29,12 @@ class User {
   factory User.dummy() {
     return User(
       id: 001,
-      name: "Kelompok 2",
-      username: "Kel2",
-      email: "Kel02_A@itg.ac.id",
+      name: "Kelompok empat",
+      username: "Kelompok_kami",
+      email: "empat@gmail.com",
       profilePhoto:
-          "https://i.postimg.cc/1z6SJk9G/pexels-andrea-piacquadio-3772510.jpg",
-      phoneNumber: "08222222222",
+          "https://i.postimg.cc/V6vY6r6M/Whats-App-Image-2023-04-10-at-12-58-17.jpg",
+      phoneNumber: "081024012024",
     );
   }
 }

@@ -85,8 +85,8 @@ class _HomeFragmentState extends State<HomeFragment> {
                       },
                     child: HomeFragmentWidget.hotestNewsCard(
                       size,
-                      "https://upload.wikimedia.org/wikipedia/commons/3/3c/Mount_Cikuray_from_Cisurupan.JPG", 
-                      "Gunung Cikuray", 
+                      "https://i.postimg.cc/NFBxBshP/059557800-1626167508-sergio-capuzzimati-SITw-DBhar6w-unsplash.jpg", 
+                      "Ikan Koi", 
                     ),
                     ),
                   ),
