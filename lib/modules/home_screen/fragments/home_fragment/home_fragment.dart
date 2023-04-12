@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:pertemuan_v/configs/app_routes.dart';
 import 'package:pertemuan_v/models/user.dart';
 import 'package:pertemuan_v/modules/home_screen/fragments/home_fragment/home_fragment_widgets.dart';
+
+import '../../../../models/news.dart';
 
 // import 'home_fragment_widgets.dart';
 
 class HomeFragment extends StatefulWidget {
   const HomeFragment({
     super.key,
-    required this.user,
+    required this.user, 
+    required this.latesNews,  //add constructor latesNews
     required this.homeScaffold,
   });
+
   final User user;
+  final List<News> latesNews; 
   final GlobalKey<ScaffoldState> homeScaffold;
 
   @override
@@ -70,10 +77,17 @@ class _HomeFragmentState extends State<HomeFragment> {
                     padding: const EdgeInsets.symmetric(
                       horizontal: 16,
                     ),
+                    child: InkWell(
+                      onTap: (){
+                        GoRouter.of(context).goNamed(
+                          AppRoutes.newsDetailHot,
+                        );
+                      },
                     child: HomeFragmentWidget.hotestNewsCard(
                       size,
-                      "https://picsum.photos/1080/690",
-                      "Lebaran Sebentar Lagi",
+                      "https://upload.wikimedia.org/wikipedia/commons/3/3c/Mount_Cikuray_from_Cisurupan.JPG", 
+                      "Gunung Cikuray", 
+                    ),
                     ),
                   ),
                   const SizedBox(
@@ -94,6 +108,8 @@ class _HomeFragmentState extends State<HomeFragment> {
                     ),
                     child: HomeFragmentWidget.latestNewsSection(
                       size,
+                      widget.latesNews
+                      /* new: add list lates-news */
                     ),
                   ),
                 ],

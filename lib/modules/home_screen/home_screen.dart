@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pertemuan_v/configs/app_routes.dart';
+import 'package:pertemuan_v/models/list_news.dart';
 import 'package:pertemuan_v/models/user.dart';
 import 'package:pertemuan_v/modules/home_screen/fragments/home_fragment/home_fragment.dart';
 import 'package:pertemuan_v/modules/home_screen/fragments/menu_fragment/menu_fragment.dart';
 import 'package:pertemuan_v/modules/home_screen/fragments/news_fragment/news_fragment.dart';
+import 'package:pertemuan_v/models/news.dart';
+
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({
@@ -23,6 +27,9 @@ class _HomeScreenState extends State<HomeScreen> {
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   final PageController _pageController = PageController();
   late User user;
+
+
+  late List<News> latesNews = litslatesNews;
 
   tapBottomItem(int index) {
     if (index != 2) {
@@ -62,7 +69,8 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           HomeFragment(
             user: user,
-            homeScaffold: scaffoldKey,
+            latesNews: latesNews,  
+            homeScaffold: scaffoldKey, 
           ),
           const NewsFragment(),
           const MenuFragment()
@@ -152,7 +160,11 @@ class _HomeScreenState extends State<HomeScreen> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: GestureDetector(
-              onTap: () {},
+              onTap: () {
+                GoRouter.of(context).goNamed(
+                  AppRoutes.profileDetail,
+                );
+              },
               child: Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(

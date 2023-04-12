@@ -14,6 +14,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   late Size size;
   final User user = User.dummy();
+  
   @override
   void initState() {
     SystemChrome.setSystemUIOverlayStyle(
